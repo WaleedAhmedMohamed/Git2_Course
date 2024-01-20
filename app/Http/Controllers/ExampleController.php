@@ -5,18 +5,18 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\view\view;
-use App\models\Test;
+use App\models\User;
 class ExampleController extends Controller
 
 {
-    private $columns = ['name','email','password'];
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $test = Test::get();
+        $test = User::get();
 
         return view('index',compact('test'));
     }
@@ -31,15 +31,20 @@ class ExampleController extends Controller
         return view('create');
 
     }
+    public function login()
+    {
+        return view('login');
+    }
 
     /**
-     * Store a newly created resource in storage.
+     * Store
+     * a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $test = new Test();
+        $test = new User();
         $test->name = $request->name;
         $test->email = $request->email;
         $test->mobile = $request->mobile;
@@ -96,6 +101,12 @@ class ExampleController extends Controller
     public function destroy($id):RedirectResponse
     {
        //
+    }
+
+    // return login view
+    public function getLogin()
+    {
+        return view('login');
     }
 
 

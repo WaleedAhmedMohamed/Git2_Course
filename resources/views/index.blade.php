@@ -17,12 +17,8 @@
     </tr>
     </thead>
     <tbody>
-    <div class="mb-3">
-        <form action="{{'example/create'}}" method="POST" class="d-flex" role="search">
-            @csrf
-            <button class="btn btn-danger" type="submit">Logout</button>
-        </form>
-    </div>
+
+
     @foreach($test as $data)
             <tr>
                 <td class="align-middle">{{$data->name}}</td>
